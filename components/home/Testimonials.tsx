@@ -31,7 +31,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-24 bg-gradient-warm dark:bg-rich-black bg-pattern-dots">
+    <section className="py-8 sm:py-20 px-4 sm:px-6 lg:px-24 bg-gradient-warm dark:bg-rich-black bg-pattern-dots">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
