@@ -40,6 +40,7 @@ function CartWrapper({ children }: { children: React.ReactNode }) {
   )
 }
 
+// Root layout with CartProvider and Cart component
 export default function RootLayout({
   children,
 }: {
