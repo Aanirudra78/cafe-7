@@ -67,7 +67,7 @@ export default function HeroSection() {
 
           {/* Headline with Staggered Animation */}
           <motion.h1
-            className="font-serif text-3xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6 drop-shadow-2xl"
+            className="font-cinzel text-3xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6 drop-shadow-2xl"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}

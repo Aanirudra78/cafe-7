@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter, Playfair_Display, Cinzel_Decorative } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import { CartProvider } from '@/context/CartContext'
@@ -18,6 +18,13 @@ const playfair = Playfair_Display({
   display: 'swap',
 })
 
+const cinzel = Cinzel_Decorative({
+  subsets: ['latin'],
+  variable: '--font-cinzel',
+  display: 'swap',
+  weight: ['400', '700', '900'],
+})
+
 export const metadata: Metadata = {
   title: 'Café Espresso | Premium Coffee Experience',
   description: 'Experience the finest coffee in a warm, inviting atmosphere. Order online or visit us today.',
@@ -33,7 +40,7 @@ function CartWrapper({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default function RootLayout({
+export default function RootLayout({${cinzel.variable} 
   children,
 }: {
   children: React.ReactNode
