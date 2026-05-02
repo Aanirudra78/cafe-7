@@ -882,6 +882,9 @@ video {
 .min-h-screen {
   min-height: 100vh;
 }
+.min-h-\[300px\] {
+  min-height: 300px;
+}
 .w-10 {
   width: 2.5rem;
 }
@@ -2078,6 +2081,10 @@ html {
 
   .sm\:min-h-\[600px\] {
     min-height: 600px;
+  }
+
+  .sm\:min-h-\[400px\] {
+    min-height: 400px;
   }
 
   .sm\:w-20 {
