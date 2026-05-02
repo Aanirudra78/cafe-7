@@ -83,13 +83,13 @@ export default function HeroSection() {
             ))}
           </motion.h1>
 
-          {/* Subheadline with glassmorphism */}
+          {/* Subheadline */}
           <motion.div
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
             transition={{ delay: 2.3 }}
-            className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 mb-6 sm:mb-8 max-w-xl shadow-2xl"
+            className="mb-6 sm:mb-8 max-w-xl"
           >
             <p className="text-base sm:text-lg lg:text-xl text-white/90">
               Discover the art of coffee-making in a warm, inviting atmosphere. Every cup tells a story of passion and excellence.
