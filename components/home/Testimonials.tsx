@@ -48,7 +48,7 @@ export default function Testimonials() {
             What Our Guests Say
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto">
-            Don't just take our word for it - hear from our valued customers.
+            Don't take our word for it - hear from our valued customers.
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function Testimonials() {
               className="bg-gradient-to-br from-white to-light-beige dark:from-dark-brown dark:to-rich-black rounded-2xl shadow-xl p-6 sm:p-8 lg:p-12 border border-gray-100 dark:border-gray-800 relative overflow-hidden"
             >
               {/* Decorative quote icon */}
-              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 text-6xl sm:text-8xl text-accent/10 font-serif">"</div>
+              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 text-6xl sm:text-8xl text-accent/10 font-serif">&ldquo;</div>
               {/* Stars */}
               <div className="flex justify-center mb-4 sm:mb-6">
                 {[...Array(5)].map((_, i) => (
@@ -78,7 +78,7 @@ export default function Testimonials() {
 
               {/* Quote */}
               <blockquote className="text-center text-base sm:text-xl lg:text-2xl italic text-deep-charcoal dark:text-soft-white-dark leading-relaxed mb-6 sm:mb-8">
-                "{testimonials[currentIndex].text}"
+                &ldquo;{testimonials[currentIndex].text}&rdquo;
               </blockquote>
 
               {/* Author */}

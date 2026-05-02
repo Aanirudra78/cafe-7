@@ -58,7 +58,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-cream/90"
             >
-              We'd love to hear from you
+              We&apos;d love to hear from you
             </motion.p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                     className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 text-center"
                   >
                     <p className="text-green-600 dark:text-green-400 font-semibold">
-                      Message sent successfully! We'll get back to you soon.
+                      Message sent successfully! We&apos;ll get back to you soon.
                     </p>
                   </motion.div>
                 ) : (

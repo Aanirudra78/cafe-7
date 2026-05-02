@@ -117,7 +117,7 @@ export default function ReservationsPage() {
                     Make a Reservation
                   </h2>
                   <p className="text-gray-600 dark:text-gray-400 text-lg">
-                    Fill out the form below and we'll confirm your reservation
+                    Fill out the form below and we&apos;ll confirm your reservation
                   </p>
                 </motion.div>
 

@@ -130,7 +130,7 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
                       Order Sent!
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Your order has been sent via WhatsApp. We'll confirm it shortly.
+                      Your order has been sent via WhatsApp. We&apos;ll confirm it shortly.
                     </p>
                   </motion.div>
                 ) : (
