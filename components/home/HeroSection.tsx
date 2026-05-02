@@ -18,7 +18,7 @@ export default function HeroSection() {
   const words = 'Premium Coffee Experience'.split(' ')
 
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden">
+    <section className="relative h-screen min-h-[500px] sm:min-h-[600px] max-h-[900px] overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-espresso/90 via-espresso/70 to-accent/80 z-10" />
@@ -30,11 +30,11 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex items-center px-6 sm:px-12 lg:px-24">
-        <div className="max-w-3xl">
+      <div className="relative z-20 h-full flex items-center px-4 sm:px-6 lg:px-24">
+        <div className="max-w-3xl w-full">
           {/* Headline with Staggered Animation */}
           <motion.h1
-            className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+            className="font-serif text-3xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
@@ -43,7 +43,7 @@ export default function HeroSection() {
               <motion.span
                 key={index}
                 variants={fadeInUp}
-                className="inline-block mr-3"
+                className="inline-block mr-2 sm:mr-3"
               >
                 {word}
               </motion.span>
@@ -56,7 +56,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 2.3 }}
-            className="text-lg sm:text-xl text-white/90 mb-8 max-w-xl"
+            className="text-base sm:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-xl"
           >
             Discover the art of coffee-making in a warm, inviting atmosphere. Every cup tells a story of passion and excellence.
           </motion.p>
@@ -67,7 +67,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 2.8 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
           >
             <Button
               size="lg"
@@ -96,15 +96,15 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ delay: 3.5 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+            className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-20"
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
               className="flex flex-col items-center text-white"
             >
-              <span className="text-sm mb-2">Scroll to explore</span>
-              <ChevronDown className="w-6 h-6" />
+              <span className="text-xs sm:text-sm mb-2">Scroll to explore</span>
+              <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.div>
           </motion.div>
         )}

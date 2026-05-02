@@ -31,7 +31,7 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="py-20 px-6 sm:px-12 lg:px-24 bg-gradient-warm dark:bg-rich-black bg-pattern-dots">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-24 bg-gradient-warm dark:bg-rich-black bg-pattern-dots">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -39,15 +39,15 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
-          <span className="text-accent font-semibold tracking-wider uppercase text-sm">
+          <span className="text-accent font-semibold tracking-wider uppercase text-xs sm:text-sm">
             Testimonials
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-deep-charcoal dark:text-soft-white-dark mt-3 mb-4">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-deep-charcoal dark:text-soft-white-dark mt-3 mb-4">
             What Our Guests Say
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto">
             Don't just take our word for it - hear from our valued customers.
           </p>
         </motion.div>
@@ -62,28 +62,28 @@ export default function Testimonials() {
               animate="visible"
               exit="hidden"
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-white to-light-beige dark:from-dark-brown dark:to-rich-black rounded-2xl shadow-xl p-8 sm:p-12 border border-gray-100 dark:border-gray-800 relative overflow-hidden"
+              className="bg-gradient-to-br from-white to-light-beige dark:from-dark-brown dark:to-rich-black rounded-2xl shadow-xl p-6 sm:p-8 lg:p-12 border border-gray-100 dark:border-gray-800 relative overflow-hidden"
             >
               {/* Decorative quote icon */}
-              <div className="absolute top-4 left-4 text-8xl text-accent/10 font-serif">"</div>
+              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 text-6xl sm:text-8xl text-accent/10 font-serif">"</div>
               {/* Stars */}
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center mb-4 sm:mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className="w-6 h-6 fill-accent text-accent"
+                    className="w-4 h-4 sm:w-6 sm:h-6 fill-accent text-accent"
                   />
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-center text-xl sm:text-2xl italic text-deep-charcoal dark:text-soft-white-dark leading-relaxed mb-8">
+              <blockquote className="text-center text-base sm:text-xl lg:text-2xl italic text-deep-charcoal dark:text-soft-white-dark leading-relaxed mb-6 sm:mb-8">
                 "{testimonials[currentIndex].text}"
               </blockquote>
 
               {/* Author */}
               <div className="text-center">
-                <p className="font-semibold text-lg text-deep-charcoal dark:text-soft-white-dark">
+                <p className="font-semibold text-base sm:text-lg text-deep-charcoal dark:text-soft-white-dark">
                   {testimonials[currentIndex].name}
                 </p>
               </div>
@@ -91,18 +91,18 @@ export default function Testimonials() {
           </AnimatePresence>
 
           {/* Navigation Buttons */}
-          <div className="flex justify-center items-center mt-8 space-x-4">
+          <div className="flex justify-center items-center mt-6 sm:mt-8 space-x-2 sm:space-x-4">
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={prevTestimonial}
-              className="p-3 rounded-full bg-white dark:bg-dark-brown shadow-lg text-deep-charcoal dark:text-soft-white-dark hover:bg-accent hover:text-white transition-colors"
+              className="p-2 sm:p-3 rounded-full bg-white dark:bg-dark-brown shadow-lg text-deep-charcoal dark:text-soft-white-dark hover:bg-accent hover:text-white transition-colors"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.button>
 
             {/* Dots */}
-            <div className="flex space-x-2">
+            <div className="flex space-x-1.5 sm:space-x-2">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
@@ -110,9 +110,9 @@ export default function Testimonials() {
                     setCurrentIndex(index)
                     setIsAutoPlaying(false)
                   }}
-                  className={`w-3 h-3 rounded-full transition-all ${
+                  className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all ${
                     index === currentIndex
-                      ? 'bg-accent w-8'
+                      ? 'bg-accent w-6 sm:w-8'
                       : 'bg-gray-300 dark:bg-gray-600'
                   }`}
                 />
@@ -123,9 +123,9 @@ export default function Testimonials() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={nextTestimonial}
-              className="p-3 rounded-full bg-white dark:bg-dark-brown shadow-lg text-deep-charcoal dark:text-soft-white-dark hover:bg-accent hover:text-white transition-colors"
+              className="p-2 sm:p-3 rounded-full bg-white dark:bg-dark-brown shadow-lg text-deep-charcoal dark:text-soft-white-dark hover:bg-accent hover:text-white transition-colors"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
             </motion.button>
           </div>
         </div>
