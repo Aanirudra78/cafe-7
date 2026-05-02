@@ -40,14 +40,14 @@ function CartWrapper({ children }: { children: React.ReactNode }) {
   )
 }
 
-export default function RootLayout({${cinzel.variable} 
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} ${cinzel.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <CartProvider>
             <CartWrapper>
