@@ -48,7 +48,7 @@ export default function Testimonials() {
             What Our Guests Say
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-lg max-w-2xl mx-auto">
-            Don't take our word for it - hear from our valued customers.
+            Don&apos;t take our word for it - hear from our valued customers.
           </p>
         </motion.div>
 

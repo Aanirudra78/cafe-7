@@ -100,7 +100,7 @@ export default function ReservationsPage() {
                   Reservation Confirmed!
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 text-lg">
-                  We've received your reservation request. You'll receive a confirmation email shortly.
+                  We&apos;ve received your reservation request. You&apos;ll receive a confirmation email shortly.
                 </p>
               </motion.div>
             ) : (
