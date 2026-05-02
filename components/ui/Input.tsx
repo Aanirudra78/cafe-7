@@ -4,7 +4,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration'> {
   label?: string
   error?: string
 }
@@ -27,7 +27,7 @@ export default function Input({ label, error, className, ...props }: InputProps)
           error && 'border-red-500',
           className
         )}
-        {...props}
+        {...props as any}
       />
       {error && (
         <motion.p
