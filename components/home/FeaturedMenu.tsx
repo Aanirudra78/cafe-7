@@ -12,7 +12,7 @@ import { useCart } from '@/context/CartContext'
 
 export default function FeaturedMenu() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
   const { addToCart } = useCart()
 
   const featuredItems = menuItems.slice(0, 6)
@@ -51,7 +51,7 @@ export default function FeaturedMenu() {
               variants={fadeInUp}
               className="group relative rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover cursor-pointer border border-gray-100 dark:border-gray-800"
             >
-              <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden">
+              <div className="relative aspect-[3/4] overflow-hidden min-h-[300px] sm:min-h-[400px]">
                 <img
                   src={item.image}
                   alt={item.name}
