@@ -1,11 +1,12 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X } from 'lucide-react'
+import { X, Coffee } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { fadeInUp, slideIn } from '@/lib/animations'
 
 interface MobileMenuProps {
   isOpen: boolean
@@ -16,90 +17,98 @@ interface MobileMenuProps {
 export default function MobileMenu({ isOpen, onClose, navLinks }: MobileMenuProps) {
   const pathname = usePathname()
 
-  const variants = {
-    hidden: { x: '100%' },
-    visible: { x: 0 },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0 },
-  }
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
 
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
             onClick={onClose}
-            className="fixed inset-0 bg-black/50 z-50"
           />
 
-          {/* Menu */}
+          {/* Menu Panel */}
           <motion.div
             initial="hidden"
             animate="visible"
             exit="hidden"
-            variants={variants}
+            variants={{
+              hidden: { x: '100%', opacity: 0 },
+              visible: { x: 0, opacity: 1, transition: { type: 'spring', damping: 25, stiffness: 200 } }
+            }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 bottom-0 w-80 bg-white dark:bg-rich-black z-50 shadow-2xl"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-gradient-to-br from-white to-light-beige dark:from-rich-black dark:to-dark-brown z-50 shadow-2xl flex flex-col"
           >
-            <div className="p-6">
-              {/* Close Button */}
+            {/* Header */}
+            <div className="p-6 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <Coffee className="w-6 h-6 text-accent" />
+                <h2 className="text-xl font-serif font-semibold text-deep-charcoal dark:text-soft-white-dark">
+                  Café Espresso
+                </h2>
+              </div>
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
-                className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               >
                 <X className="w-6 h-6 text-deep-charcoal dark:text-soft-white-dark" />
               </motion.button>
+            </div>
 
-              {/* Menu Items */}
-              <nav className="mt-12 space-y-6">
+            {/* Links */}
+            <nav className="flex-1 overflow-y-auto p-6">
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                animate="visible"
+                className="space-y-2"
+              >
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
-                    variants={itemVariants}
-                    initial="hidden"
-                    animate="visible"
-                    transition={{ delay: index * 0.1 }}
+                    variants={fadeInUp}
+                    transition={{ delay: index * 0.05 }}
                   >
                     <Link
                       href={link.href}
                       onClick={onClose}
                       className={cn(
-                        'block text-2xl font-serif font-semibold transition-colors',
+                        'block text-base font-medium py-3 px-4 rounded-xl transition-all duration-300',
                         pathname === link.href
-                          ? 'text-accent'
-                          : 'text-deep-charcoal dark:text-soft-white-dark hover:text-accent'
+                          ? 'bg-gradient-to-r from-accent to-[#c49464] text-white shadow-md'
+                          : 'text-deep-charcoal dark:text-soft-white-dark hover:bg-gray-100 dark:hover:bg-gray-800 hover:translate-x-1'
                       )}
                     >
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
-              </nav>
-
-              {/* CTA Button */}
-              <motion.div
-                variants={itemVariants}
-                initial="hidden"
-                animate="visible"
-                transition={{ delay: navLinks.length * 0.1 }}
-                className="mt-12"
-              >
-                <Link
-                  href="/menu"
-                  onClick={onClose}
-                  className="block w-full text-center px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-colors"
-                >
-                  Order Now
-                </Link>
               </motion.div>
+            </nav>
+
+            {/* Footer */}
+            <div className="p-6 border-t border-gray-200 dark:border-gray-700">
+              <Link href="/menu" onClick={onClose}>
+                <button className="w-full py-3 bg-gradient-to-r from-accent to-[#c49464] text-white rounded-xl font-semibold hover:from-[#c49464] hover:to-accent transition-all duration-300 shadow-md hover:shadow-lg">
+                  Order Now
+                </button>
+              </Link>
             </div>
           </motion.div>
         </>

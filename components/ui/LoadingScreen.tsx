@@ -9,25 +9,23 @@ export default function LoadingScreen() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Progress bar animation
-    const progressInterval = setInterval(() => {
+    const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(progressInterval)
+          clearInterval(timer)
           return 100
         }
-        return prev + 2
+        return prev + Math.random() * 15
       })
-    }, 50)
+    }, 100)
 
-    // Hide loading screen after 2.5s
-    const timer = setTimeout(() => {
+    const timeout = setTimeout(() => {
       setIsLoading(false)
-    }, 2500)
+    }, 1500)
 
     return () => {
-      clearTimeout(timer)
-      clearInterval(progressInterval)
+      clearInterval(timer)
+      clearTimeout(timeout)
     }
   }, [])
 
@@ -38,34 +36,53 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-espresso flex flex-col items-center justify-center"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-espresso to-[#5D4037]"
         >
+          {/* Logo Animation */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: [0.8, 1.1, 1], opacity: 1 }}
-            transition={{ duration: 1, times: [0, 0.5, 1] }}
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ 
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{
+              scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" },
+              rotate: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+            }}
             className="mb-8"
           >
-            <Coffee className="w-20 h-20 text-accent" />
+            <Coffee className="w-24 h-24 text-accent drop-shadow-2xl" />
           </motion.div>
-          
+
+          {/* Text */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-3xl font-serif text-cream mb-8"
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="font-serif text-4xl font-bold text-cream mb-4"
           >
             Café Espresso
           </motion.h1>
 
-          <div className="w-64 h-1 bg-cream/20 rounded-full overflow-hidden">
+          {/* Progress Bar */}
+          <div className="w-64 h-2 bg-cream/20 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.05 }}
-              className="h-full bg-accent rounded-full"
+              transition={{ duration: 0.1 }}
+              className="h-full bg-gradient-to-r from-accent to-[#c49464]"
             />
           </div>
+
+          {/* Loading Text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-cream/60 text-sm mt-4"
+          >
+            Brewing excellence...
+          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>

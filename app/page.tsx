@@ -8,6 +8,7 @@ import CTASection from '@/components/home/CTASection'
 import Footer from '@/components/layout/Footer'
 import CartButton from '@/components/ordering/CartButton'
 import PageTransition from '@/components/animations/PageTransition'
+import BackToTop from '@/components/ui/BackToTop'
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         </main>
         <Footer />
         <CartButton />
+        <BackToTop />
       </PageTransition>
     </>
   )

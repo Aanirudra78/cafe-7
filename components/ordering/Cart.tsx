@@ -39,10 +39,9 @@ export default function Cart({ isOpen, onClose }: CartProps) {
 
             {/* Cart Panel */}
             <motion.div
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={variants}
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '100%', opacity: 0 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-gradient-to-br from-white to-light-beige dark:from-rich-black dark:to-dark-brown z-50 shadow-2xl flex flex-col"
             >
@@ -110,16 +109,19 @@ export default function Cart({ isOpen, onClose }: CartProps) {
                               <motion.button
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                className="p-1 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                                className="w-8 h-8 rounded-lg bg-accent text-white flex items-center justify-center hover:bg-accent/90 transition-colors shadow-md"
+                                aria-label="Increase quantity"
                               >
                                 <Plus className="w-4 h-4" />
                               </motion.button>
                               <motion.button
+                                whileHover={{ scale: 1.1, rotate: 10 }}
                                 whileTap={{ scale: 0.9 }}
                                 onClick={() => removeFromCart(item.id)}
-                                className="p-1 ml-auto rounded text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
+                                className="p-2 text-gray-400 hover:text-red-500 transition-colors"
+                                aria-label="Remove item"
                               >
-                                <Trash2 className="w-4 h-4" />
+                                <Trash2 className="w-5 h-5" />
                               </motion.button>
                             </div>
                           </div>
