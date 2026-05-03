@@ -281,10 +281,10 @@ export default function ReservationsPage() {
             </motion.div>
           </div>
         </section>
-      <CartButton />
-      <CartWrapper />
       </main>
       <Footer />
+      <CartButton />
+      <CartWrapper />
     </PageTransition>
   )
 }
