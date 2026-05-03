@@ -183,4 +183,4 @@ export const testimonials: Testimonial[] = [
   }
 ]
 
-export const whatsappNumber = '1234567890' // Replace with actual WhatsApp number
+export const whatsappNumber = '917828088755' // Replace with actual WhatsApp number
