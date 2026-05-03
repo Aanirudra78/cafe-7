@@ -4,6 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import CartButton from '@/components/ordering/CartButton'
+import CartWrapper from '@/components/ordering/CartWrapper'
 import PageTransition from '@/components/animations/PageTransition'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
 import { Heart, Users, Coffee as CoffeeIcon } from 'lucide-react'
@@ -200,6 +202,8 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </section>
+      <CartButton />
+      <CartWrapper />
       </main>
       <Footer />
     </PageTransition>

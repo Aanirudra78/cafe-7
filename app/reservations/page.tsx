@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import CartButton from '@/components/ordering/CartButton'
+import CartWrapper from '@/components/ordering/CartWrapper'
 import PageTransition from '@/components/animations/PageTransition'
 import Input from '@/components/ui/Input'
 import Button from '@/components/ui/Button'
@@ -279,6 +281,8 @@ export default function ReservationsPage() {
             </motion.div>
           </div>
         </section>
+      <CartButton />
+      <CartWrapper />
       </main>
       <Footer />
     </PageTransition>

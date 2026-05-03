@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import CartButton from '@/components/ordering/CartButton'
+import CartWrapper from '@/components/ordering/CartWrapper'
 import PageTransition from '@/components/animations/PageTransition'
 import { menuItems } from '@/lib/data'
 import { fadeInUp, staggerContainer } from '@/lib/animations'
@@ -191,6 +192,7 @@ export default function MenuPage() {
         </div>
       </main>
       <Footer />
+      <CartWrapper />
       <CartButton />
     </PageTransition>
   )
